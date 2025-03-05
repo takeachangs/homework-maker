@@ -1,0 +1,15 @@
+{
+  "name": "question-collection-tool",
+  "version": "1.0.0",
+  "description": "A tool to compile question images into a PDF",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve",
+    "vercel-build": "echo 'Building static site'"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.0.1"
+  }
+}

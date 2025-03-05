@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple tool to collect question images and compile them into a PDF document.">
+    <title>Question Collection Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/public/favicon.ico">
+    <link rel="manifest" href="/public/manifest.json">
+</head>
+<body>
+    <div class="container">
+        <h1>Question Collection Tool</h1>
+        
+        <div class="file-input-section">
+            <h2>Upload Question Images</h2>
+            <div id="drop-area">
+                <p>Drag & drop images here or</p>
+                <input type="file" id="file-input" accept="image/*" multiple>
+                <label for="file-input" class="file-input-button">Select Files</label>
+            </div>
+        </div>
+
+        <div class="image-preview-section">
+            <h2>Arrange Your Questions</h2>
+            <p class="hint">Drag and drop to rearrange images</p>
+            <div id="preview-container" class="sortable-container"></div>
+        </div>
+
+        <div class="pdf-options">
+            <h2>PDF Options</h2>
+            <div class="form-group">
+                <label for="file-name">PDF File Name:</label>
+                <input type="text" id="file-name" placeholder="My Questions Collection">
+            </div>
+            <button id="generate-pdf" class="action-button">Generate PDF</button>
+        </div>
+        
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Generating PDF...</p>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>Created for easily compiling question images into PDF documents</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
