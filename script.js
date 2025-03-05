@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing app...');
+    
     // Elements
     const dropArea = document.getElementById('drop-area');
     const fileInput = document.getElementById('file-input');
@@ -9,6 +11,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Global variables
     let images = [];
+    
+    function showLoading() {
+        loadingIndicator.style.display = 'flex';
+        loadingIndicator.classList.remove('hidden');
+    }
+    
+    function hideLoading() {
+        loadingIndicator.style.display = 'none';
+        loadingIndicator.classList.add('hidden');
+    }
+    
+    // Make sure loading is hidden initially
+    hideLoading();
+    
+    // Disable generate button initially
+    generatePdfBtn.disabled = true;
 
     // Initialize sortable
     new Sortable(previewContainer, {
@@ -174,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Show loading indicator
-        loadingIndicator.classList.remove('hidden');
+        showLoading();
         
         // Use timeout to allow the UI to update before the potentially heavy PDF generation
         setTimeout(() => {
@@ -208,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (index >= images.length) {
                         // All images added, save the PDF
                         pdf.save(fileName);
-                        loadingIndicator.classList.add('hidden');
+                        hideLoading();
                         return;
                     }
                     
@@ -262,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } catch (error) {
                 console.error('Error generating PDF:', error);
                 alert('Error generating PDF. Please try again.');
-                loadingIndicator.classList.add('hidden');
+                hideLoading();
             }
         }, 100);
     }

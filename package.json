@@ -1,11 +1,11 @@
 {
-  "name": "question-collection-tool",
+  "name": "homework-maker",
   "version": "1.0.0",
-  "description": "A tool to compile question images into a PDF",
-  "main": "index.html",
+  "private": true,
   "scripts": {
     "start": "serve",
-    "vercel-build": "echo 'Building static site'"
+    "build": "mkdir -p dist && cp -r *.html *.css *.js robots.txt public dist/",
+    "vercel-build": "npm run build"
   },
   "author": "",
   "license": "MIT",
